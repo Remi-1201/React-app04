@@ -1,5 +1,4 @@
-# [Reactに入門した人のためのもっとReactが楽しくなるステップアップコース完全版
- (Udemy)](https://www.udemy.com/course/react_stepup/learn/lecture/24823314#overview)
+# [Udemy-React に入門した人のためのもっと React が楽しくなるステップアップコース完全版](https://www.udemy.com/course/react_stepup/learn/lecture/24823314#overview)
 
 ## 成果
 
