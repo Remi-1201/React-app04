@@ -12,7 +12,8 @@ const style = {
 // 1- props = AppのDOMで定義されたChildAreaのprops
 // 3- memoでコンポネントの全て(アロー関数の部分)を囲ってあげる
 export const ChildArea = memo((props) => {
-  const { open } = props;
+  // 4- Add new prop "onClickClose"
+  const { open, onClickClose } = props;
   console.log("ChildArea is being render");
   // 2- レンダリングコストの高いコンポーネント
   // const data = [...Array(2000).keys()];
@@ -27,6 +28,8 @@ export const ChildArea = memo((props) => {
       {open ? (
         <div style={style}>
           <p>Child Component</p>
+          {/* 4- useCallbackのためボタン追加 */}
+          <button onClick={onClickClose}>Close</button>
         </div>
       ) : null}
     </>

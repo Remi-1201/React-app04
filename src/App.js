@@ -1,4 +1,5 @@
-import { useState } from "react";
+// 4- Add useCallback=関数のmemo化
+import { useState, useCallback } from "react";
 import { ChildArea } from "./ChildArea";
 import "./styles.css";
 
@@ -16,6 +17,13 @@ export default function App() {
 
   const onClickOpen = () => setOpen(!open);
 
+  // 4- for ChildArea's "Close" button
+  // 4- setOpen() の第二引数で [] を渡すと
+  //  - onClickClose関数がずっと使われることになる
+  const onClickClose = useCallback(() => setOpen(false), []);
+  // 4- open=第二引数なので、openに変化が起きると、
+  // - onClickClose関数が呼び出される
+
   return (
     <div className="App">
       <input value={text} onChange={onChangeText} />
@@ -25,7 +33,8 @@ export default function App() {
       {/* 1- <ChildArea でエンター押すとコンポネントが
       自動的にinmportされる 
       * open = component's prop, {open} = the open function above*/}
-      <ChildArea open={open} />
+      <ChildArea open={open} onClickClose={onClickClose} />
+      {/* 4- Add new prop "onClickClose" */}
     </div>
   );
 }
