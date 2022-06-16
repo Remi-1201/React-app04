@@ -7,6 +7,13 @@ const style = {
 // 1- props = AppのDOMで定義されたChildAreaのprops
 export const ChildArea = (props) => {
   const { open } = props;
+  console.log("ChildArea is being render");
+  // 2- レンダリングコストの高いコンポーネント
+  // const data = [...Array(2000).keys()];
+  // data.forEach(() => {
+  //   console.log("...");
+  // })
+
   return (
     <>
       {/* 1- {open? (true) : (false)}
