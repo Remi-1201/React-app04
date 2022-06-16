@@ -1,3 +1,8 @@
+// 3- propsが更新されない限りChildAreaコンポネントが
+// 3- レンダリングされないようにmemoを導入
+// 3- InputAreaに入力してもChildAreaがレンダリングされない
+import { memo } from "react";
+
 const style = {
   width: "100%",
   height: "200px",
@@ -5,7 +10,8 @@ const style = {
 };
 
 // 1- props = AppのDOMで定義されたChildAreaのprops
-export const ChildArea = (props) => {
+// 3- memoでコンポネントの全て(アロー関数の部分)を囲ってあげる
+export const ChildArea = memo((props) => {
   const { open } = props;
   console.log("ChildArea is being render");
   // 2- レンダリングコストの高いコンポーネント
@@ -25,4 +31,4 @@ export const ChildArea = (props) => {
       ) : null}
     </>
   );
-};
+});
