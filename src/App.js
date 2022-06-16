@@ -1,5 +1,6 @@
 // 4- Add useCallback=関数のmemo化
-import { useState, useCallback } from "react";
+// 5- useMemo = 変数のmemo化
+import { useState, useCallback, useMemo } from "react";
 import { ChildArea } from "./ChildArea";
 import "./styles.css";
 
@@ -18,11 +19,15 @@ export default function App() {
   const onClickOpen = () => setOpen(!open);
 
   // 4- for ChildArea's "Close" button
-  // 4- setOpen() の第二引数で [] を渡すと
+  // 4- setOpen() の第二引数で 依存配列[] を渡すと
   //  - onClickClose関数がずっと使われることになる
   const onClickClose = useCallback(() => setOpen(false), []);
   // 4- open=第二引数なので、openに変化が起きると、
   // - onClickClose関数が呼び出される
+
+  // 5- useMemo = 変数(1 + 3 = 4)のmemo化
+  const temp = useMemo(() => 1 + 3, []);
+  console.log(temp);
 
   return (
     <div className="App">
